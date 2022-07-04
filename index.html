@@ -14,7 +14,7 @@
 </head>
 
 
-<body>
+<body id="app">
     <!-- GRADIANT EFFECT ON TOP -->
     <h1 id="main-heading" class="gradiant-effect"></h1>
     <!-- MAIN DIVIDER WHICH CONTAINS ALL THE OTHER CATEGORY-->
@@ -117,6 +117,25 @@
     <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 
     <script>
+        onload = function() {
+    let id = document.getElementById("app")
+    let loading = document.createElement("div")
+
+    loading.textContent = "Loading"
+    loading.style.fontSize = "28px"
+    id.appendChild(loading)
+
+    let loaded = setInterval(() =>{
+        loading.textContent = loading.textContent + "."
+    }, 1000)
+
+    setTimeout(() => {
+       clearInterval(loaded)
+         loading.textContent = "xxx"
+    }, 5000);
+ }
+        
+        
         tippy('[data-tippy-content]', {
             arrow: false,
             inertia: true,
@@ -124,6 +143,7 @@
             theme: 'gradiant',
             placement: 'bottom',
         });
+      
     </script>
 
 
